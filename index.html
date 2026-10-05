@@ -1,38 +1,11 @@
 <!doctype html>
-<html lang="ja">
+<html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5,user-scalable=yes,viewport-fit=cover">
-<meta name="theme-color" content="#111111">
-<title>観光伝道師おかちゃん 第1話</title>
-<style>
-:root{color-scheme:dark;--bg:#101010;--fg:#fff;--accent:#ff5b8d}*{box-sizing:border-box}
-html,body{margin:0;width:100%;height:100%;overflow:hidden;background:var(--bg);font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",Meiryo,sans-serif}
-#app{position:fixed;inset:0;display:grid;place-items:center;background:var(--bg);touch-action:pan-y;user-select:none;-webkit-user-select:none}
-.stage{position:absolute;inset:0;overflow:hidden}.slide{position:absolute;inset:0;display:grid;place-items:center;transition:transform .26s ease,opacity .26s ease;will-change:transform}
-.slide img{width:100%;height:100%;object-fit:contain;display:block;-webkit-user-drag:none;pointer-events:none;background:#fff}
-.slide.prev{transform:translateX(-100%)}.slide.next{transform:translateX(100%)}
-.topbar{position:absolute;z-index:10;top:max(10px,env(safe-area-inset-top));left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:8px 12px;pointer-events:none}
-.badge{background:rgba(0,0,0,.56);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border-radius:999px;padding:7px 11px;font-size:14px;font-weight:700;letter-spacing:.04em;color:#fff;text-shadow:0 1px 2px #000}
-.nav{position:absolute;z-index:12;inset:0;display:flex}.nav button{width:50%;height:100%;border:0;background:transparent;color:transparent;-webkit-tap-highlight-color:transparent;padding:0}
-.bottomhint{position:absolute;z-index:10;left:50%;bottom:max(12px,env(safe-area-inset-bottom));transform:translateX(-50%);background:rgba(0,0,0,.5);color:#fff;border-radius:999px;padding:8px 14px;font-size:13px;white-space:nowrap;transition:opacity .4s ease;pointer-events:none}
-.bottomhint.fade{opacity:0}.endmsg{position:absolute;z-index:11;bottom:max(18px,env(safe-area-inset-bottom));right:14px;background:rgba(255,91,141,.92);color:white;border-radius:999px;padding:8px 13px;font-size:12px;font-weight:700;display:none}
-@media (min-width:900px){.slide img{max-width:min(66.666vh,900px);height:100%;width:auto;box-shadow:0 0 40px #000}.bottomhint{font-size:14px}}
-</style></head><body>
-<div id="app" aria-label="観光伝道師おかちゃん 第1話 漫画ビューア">
-<div class="stage" id="stage"></div>
-<div class="topbar"><div class="badge">観光伝道師おかちゃん 第1話</div><div class="badge" id="counter">1 / 11</div></div>
-<div class="nav"><button id="prev" aria-label="前のページ">前へ</button><button id="next" aria-label="次のページ">次へ</button></div>
-<div class="bottomhint" id="hint">右にスワイプして次へ</div><div class="endmsg" id="endmsg">最後のページです</div>
-</div>
-<script>(()=>{const total=11;let index=0;const stage=document.getElementById('stage'),counter=document.getElementById('counter'),hint=document.getElementById('hint'),endmsg=document.getElementById('endmsg');let startX=0,startY=0,tracking=false;
-const src=i=>`assets/page-${String(i+1).padStart(2,'0')}.png`;
-const make=(i,cls='')=>{const d=document.createElement('div');d.className='slide '+cls;d.dataset.i=i;const img=document.createElement('img');img.src=src(i);img.alt=`第1話 ${i+1}ページ目`;img.draggable=false;d.appendChild(img);return d};
-function render(dir=0){const old=stage.querySelector('.slide.current');const incoming=make(index,dir>0?'next':dir<0?'prev':'');stage.appendChild(incoming);requestAnimationFrame(()=>{incoming.classList.add('current');incoming.classList.remove('next','prev');if(old){old.classList.remove('current');old.classList.add(dir>0?'prev':'next');setTimeout(()=>old.remove(),300)}});counter.textContent=`${index+1} / ${total}`;endmsg.style.display=index===total-1?'block':'none';[index-1,index+1].forEach(i=>{if(i>=0&&i<total){const im=new Image();im.src=src(i)}})}
-function go(n){if(n<0||n>=total)return;const dir=n>index?1:-1;index=n;render(dir);hint.classList.add('fade')}
-document.getElementById('prev').addEventListener('click',()=>go(index-1));document.getElementById('next').addEventListener('click',()=>go(index+1));
-const swipeTarget=document.getElementById('app');
-swipeTarget.addEventListener('touchstart',e=>{const t=e.changedTouches[0];startX=t.clientX;startY=t.clientY;tracking=true},{passive:true});
-swipeTarget.addEventListener('touchend',e=>{if(!tracking)return;tracking=false;const t=e.changedTouches[0],dx=t.clientX-startX,dy=t.clientY-startY;if(Math.abs(dx)>45&&Math.abs(dx)>Math.abs(dy)*1.15){if(dx>0)go(index+1);else go(index-1)}},{passive:true});
-document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(index+1);if(e.key==='ArrowLeft')go(index-1)});render();setTimeout(()=>hint.classList.add('fade'),3500)})();</script>
-</body></html>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tourism Ambassador Oka-chan — Episode 1</title>
+<meta http-equiv="refresh" content="0; url=/english/">
+<script>location.replace('/english/');</script>
+</head>
+<body><a href="/english/">Open the English edition</a></body>
+</html>
