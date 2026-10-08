@@ -18,6 +18,16 @@ html,body{margin:0;width:100%;height:100%;overflow:hidden;background:var(--bg);f
 .bottomhint{position:absolute;z-index:10;left:50%;bottom:max(12px,env(safe-area-inset-bottom));transform:translateX(-50%);background:rgba(0,0,0,.5);color:#fff;border-radius:999px;padding:8px 14px;font-size:13px;white-space:nowrap;transition:opacity .4s ease;pointer-events:none}
 .bottomhint.fade{opacity:0}.endmsg{position:absolute;z-index:11;bottom:max(18px,env(safe-area-inset-bottom));right:14px;background:rgba(255,91,141,.92);color:white;border-radius:999px;padding:8px 13px;font-size:12px;font-weight:700;display:none}
 @media (min-width:900px){.slide img{max-width:min(66.666vh,900px);height:100%;width:auto;box-shadow:0 0 40px #000}.bottomhint{font-size:14px}}
+
+/* Keep support controls outside the manga's tap and swipe area. */
+body{display:flex;flex-direction:column;height:100dvh}
+#app{position:relative;inset:auto;flex:1;min-height:0;width:100%;touch-action:pan-y pinch-zoom}
+.support-bar{flex:none;background:#191919;border-top:1px solid #333;padding:8px max(12px,env(safe-area-inset-right)) max(8px,env(safe-area-inset-bottom)) max(12px,env(safe-area-inset-left));color:#fff}
+.support-inner{display:flex;align-items:center;justify-content:space-between;gap:12px;max-width:900px;margin:0 auto}
+.support-note{margin:0;font-size:12px;line-height:1.5;min-width:0;color:#eee}
+.support-link{display:inline-flex;flex:none;align-items:center;justify-content:center;min-height:44px;padding:10px 14px;border-radius:999px;background:#ff8fb1;color:#24121a;font-size:14px;font-weight:700;line-height:1.3;text-decoration:none;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+.support-link:hover{background:#ffabc4}.support-link:focus-visible{outline:3px solid #fff;outline-offset:3px}
+@media (max-width:359px){.support-inner{gap:8px}.support-link{padding:10px 12px;font-size:13px}.support-note{font-size:11px}}
 </style></head><body>
 <div id="app" aria-label="観光伝道師おかちゃん 第1話 漫画ビューア">
 <div class="stage" id="stage"></div>
@@ -25,14 +35,17 @@ html,body{margin:0;width:100%;height:100%;overflow:hidden;background:var(--bg);f
 <div class="nav"><button id="prev" aria-label="前のページ">前へ</button><button id="next" aria-label="次のページ">次へ</button></div>
 <div class="bottomhint" id="hint">右にスワイプして次へ</div><div class="endmsg" id="endmsg">最後のページです</div>
 </div>
-<script>(()=>{const total=11;let index=0;const stage=document.getElementById('stage'),counter=document.getElementById('counter'),hint=document.getElementById('hint'),endmsg=document.getElementById('endmsg');let startX=0,startY=0,tracking=false;
+
+<footer class="support-bar" aria-label="おかちゃんへのご支援"><div class="support-inner"><p class="support-note">岡崎のステキを世界へ。<br>おかちゃんの活動を応援しませんか？</p><a class="support-link" href="https://ko-fi.com/okachanproject" target="_blank" rel="noopener noreferrer" aria-label="Ko-fiでおかちゃんを応援する（新しいタブで開きます）">Ko-fiで応援する</a></div></footer>
+<script>(()=>{const total=11;let index=0;const stage=document.getElementById('stage'),counter=document.getElementById('counter'),hint=document.getElementById('hint'),endmsg=document.getElementById('endmsg');let startX=0,startY=0,tracking=false,ignoreClickUntil=0;
 const src=i=>`assets/page-${String(i+1).padStart(2,'0')}.png`;
 const make=(i,cls='')=>{const d=document.createElement('div');d.className='slide '+cls;d.dataset.i=i;const img=document.createElement('img');img.src=src(i);img.alt=`第1話 ${i+1}ページ目`;img.draggable=false;d.appendChild(img);return d};
 function render(dir=0){const old=stage.querySelector('.slide.current');const incoming=make(index,dir>0?'next':dir<0?'prev':'');stage.appendChild(incoming);requestAnimationFrame(()=>{incoming.classList.add('current');incoming.classList.remove('next','prev');if(old){old.classList.remove('current');old.classList.add(dir>0?'prev':'next');setTimeout(()=>old.remove(),300)}});counter.textContent=`${index+1} / ${total}`;endmsg.style.display=index===total-1?'block':'none';[index-1,index+1].forEach(i=>{if(i>=0&&i<total){const im=new Image();im.src=src(i)}})}
 function go(n){if(n<0||n>=total)return;const dir=n>index?1:-1;index=n;render(dir);hint.classList.add('fade')}
-document.getElementById('prev').addEventListener('click',()=>go(index-1));document.getElementById('next').addEventListener('click',()=>go(index+1));
+document.getElementById('prev').addEventListener('click',()=>{if(Date.now()>=ignoreClickUntil)go(index-1)});document.getElementById('next').addEventListener('click',()=>{if(Date.now()>=ignoreClickUntil)go(index+1)});
 const swipeTarget=document.getElementById('app');
-swipeTarget.addEventListener('touchstart',e=>{const t=e.changedTouches[0];startX=t.clientX;startY=t.clientY;tracking=true},{passive:true});
-swipeTarget.addEventListener('touchend',e=>{if(!tracking)return;tracking=false;const t=e.changedTouches[0],dx=t.clientX-startX,dy=t.clientY-startY;if(Math.abs(dx)>45&&Math.abs(dx)>Math.abs(dy)*1.15){if(dx>0)go(index+1);else go(index-1)}},{passive:true});
+swipeTarget.addEventListener('touchstart',e=>{if(e.touches.length!==1){tracking=false;return}const t=e.changedTouches[0];startX=t.clientX;startY=t.clientY;tracking=true},{passive:true});
+swipeTarget.addEventListener('touchend',e=>{if(!tracking)return;tracking=false;const t=e.changedTouches[0],dx=t.clientX-startX,dy=t.clientY-startY;if(Math.abs(dx)>45&&Math.abs(dx)>Math.abs(dy)*1.15){ignoreClickUntil=Date.now()+500;if(dx>0)go(index+1);else go(index-1)}},{passive:true});
+swipeTarget.addEventListener('touchcancel',()=>{tracking=false},{passive:true});
 document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(index+1);if(e.key==='ArrowLeft')go(index-1)});render();setTimeout(()=>hint.classList.add('fade'),3500)})();</script>
 </body></html>
