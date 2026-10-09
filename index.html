@@ -12,7 +12,9 @@ html,body{margin:0;width:100%;height:100%;overflow:hidden;background:var(--bg);f
 .stage{position:absolute;inset:0;overflow:hidden}.slide{position:absolute;inset:0;display:grid;place-items:center;transition:transform .26s ease,opacity .26s ease;will-change:transform}
 .slide img{width:100%;height:100%;object-fit:contain;display:block;-webkit-user-drag:none;pointer-events:none;background:#fff}
 .slide.prev{transform:translateX(-100%)}.slide.next{transform:translateX(100%)}
-.topbar{position:absolute;z-index:10;top:max(10px,env(safe-area-inset-top));left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:8px 12px;pointer-events:none}
+.topbar{position:relative;flex:none;display:flex;justify-content:space-between;align-items:center;gap:8px;padding:max(8px,env(safe-area-inset-top)) max(12px,env(safe-area-inset-right)) 8px max(12px,env(safe-area-inset-left));background:#191919;border-bottom:1px solid #333}
+.topbar .badge:first-child{min-width:0;line-height:1.5;overflow-wrap:anywhere}
+#counter{flex:none;white-space:nowrap;font-variant-numeric:tabular-nums}
 .badge{background:rgba(0,0,0,.56);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border-radius:999px;padding:7px 11px;font-size:14px;font-weight:700;letter-spacing:.04em;color:#fff;text-shadow:0 1px 2px #000}
 .nav{position:absolute;z-index:12;inset:0;display:flex}.nav button{width:50%;height:100%;border:0;background:transparent;color:transparent;-webkit-tap-highlight-color:transparent;padding:0}
 .bottomhint{position:absolute;z-index:10;left:50%;bottom:max(12px,env(safe-area-inset-bottom));transform:translateX(-50%);background:rgba(0,0,0,.5);color:#fff;border-radius:999px;padding:8px 14px;font-size:13px;white-space:nowrap;transition:opacity .4s ease;pointer-events:none}
@@ -29,9 +31,9 @@ body{display:flex;flex-direction:column;height:100dvh}
 .support-link:hover{background:#ffabc4}.support-link:focus-visible{outline:3px solid #fff;outline-offset:3px}
 @media (max-width:359px){.support-inner{gap:8px}.support-link{padding:10px 12px;font-size:13px}.support-note{font-size:11px}}
 </style></head><body>
+<header class="topbar" aria-label="作品名とページ数"><div class="badge">観光伝道師おかちゃん 第1話</div><div class="badge" id="counter" role="status" aria-live="polite" aria-atomic="true">1 / 11</div></header>
 <div id="app" aria-label="観光伝道師おかちゃん 第1話 漫画ビューア">
 <div class="stage" id="stage"></div>
-<div class="topbar"><div class="badge">観光伝道師おかちゃん 第1話</div><div class="badge" id="counter">1 / 11</div></div>
 <div class="nav"><button id="prev" aria-label="前のページ">前へ</button><button id="next" aria-label="次のページ">次へ</button></div>
 <div class="bottomhint" id="hint">右にスワイプして次へ</div><div class="endmsg" id="endmsg">最後のページです</div>
 </div>
