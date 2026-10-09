@@ -9,7 +9,7 @@
 :root{color-scheme:dark;--bg:#101010;--fg:#fff;--accent:#ff5b8d}*{box-sizing:border-box}
 html,body{margin:0;width:100%;height:100%;overflow:hidden;background:var(--bg);font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",Meiryo,sans-serif}
 #app{position:fixed;inset:0;display:grid;place-items:center;background:var(--bg);touch-action:pan-y;user-select:none;-webkit-user-select:none}
-.stage{position:absolute;inset:0;overflow:hidden}.slide{position:absolute;inset:0;display:grid;place-items:center;transition:transform .26s ease,opacity .26s ease;will-change:transform}
+.stage{position:absolute;inset:0;overflow:hidden}.slide{position:absolute;inset:0;display:grid;grid-template-rows:minmax(0,1fr);grid-template-columns:minmax(0,1fr);place-items:center;transition:transform .26s ease,opacity .26s ease;will-change:transform}
 .slide img{width:100%;height:100%;object-fit:contain;display:block;-webkit-user-drag:none;pointer-events:none;background:#fff}
 .slide.prev{transform:translateX(-100%)}.slide.next{transform:translateX(100%)}
 .topbar{position:relative;flex:none;display:flex;justify-content:space-between;align-items:center;gap:8px;padding:max(8px,env(safe-area-inset-top)) max(12px,env(safe-area-inset-right)) 8px max(12px,env(safe-area-inset-left));background:#191919;border-bottom:1px solid #333}
