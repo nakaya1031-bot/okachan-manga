@@ -28,14 +28,14 @@ button{font:inherit;-webkit-tap-highlight-color:transparent;touch-action:manipul
 .payline.blue .core{stroke:#d9faff}
 .payline .second{display:none}
 .payline.double .second{display:block}
-.lamp{position:absolute;z-index:4;top:65.8%;width:10.7%;height:4.8%;border-radius:50%;pointer-events:none;opacity:.65;background:radial-gradient(ellipse at 50% 30%,#20000922,#12000682 70%,#080004ba 100%);box-shadow:inset 0 0 7px #16050997;transition:opacity .14s}
-.lamp.active{opacity:0}
+.lamp{position:absolute;z-index:4;top:65.8%;width:10.7%;height:4.8%;border-radius:50%;pointer-events:none;opacity:.88;background:radial-gradient(ellipse at 50% 30%,#28000880,#120006a8 70%,#080004d9 100%);box-shadow:inset 0 0 7px #160509b3;transition:opacity .14s,box-shadow .14s}
+.lamp.active{opacity:1;background:radial-gradient(ellipse at 50% 30%,#fffbe9e6 0%,#ffe8bcbf 18%,#ff8c9c99 42%,#ff284b55 68%,#ff00332e 100%);border:2px solid #fff2c4;box-shadow:inset 0 0 9px #fff4ddb3,0 0 6px 2px #fff5d0cc,0 0 15px 5px #ff3655e6,0 0 24px 7px #ff173c80}
 #lamp0{left:25.9%}#lamp1{left:42.85%}#lamp2{left:59.8%}
 .stopHit{position:absolute;z-index:8;top:64.5%;width:16.5%;height:7.2%;border:0;border-radius:50%;background:transparent;cursor:pointer;opacity:1}
 .stopHit:disabled{cursor:default}
 .stopHit:focus-visible{outline:3px solid #ffe38d;outline-offset:-3px}
 #stop0{left:23.35%}#stop1{left:40.3%}#stop2{left:57.25%}
-.stopHit.active{box-shadow:inset 0 0 11px #ffe2a340,0 0 4px #ffcd8080}
+.stopHit.active{box-shadow:none}
 .main{display:block;width:100%;margin:10px auto 5px;padding:11px 8px 12px;min-height:48px;border:2px solid #ffe29d;border-radius:14px;background:linear-gradient(#ffac67,#e4343b 48%,#941426);box-shadow:inset 0 3px 5px #fff8c7ab,inset 0 -5px 0 #650719,0 4px 0 #6a2d14;color:#fff5c6;text-shadow:0 2px 2px #88201a;font-size:clamp(18px,5.2vw,22px);font-weight:1000;letter-spacing:.035em;cursor:pointer}
 .main:disabled{opacity:.74;filter:saturate(.65);cursor:default}
 .main:active:not(:disabled){transform:translateY(2px);box-shadow:inset 0 3px 5px #fff8c7ab,inset 0 -3px 0 #650719,0 1px 0 #6a2d14}
