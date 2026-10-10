@@ -57,8 +57,9 @@ button{font:inherit;-webkit-tap-highlight-color:transparent;touch-action:manipul
 .foot{text-align:center;color:#b9876c;font-size:10px;margin:15px auto 0}
 @media(max-width:330px){.page{padding-left:6px;padding-right:6px}.machine{width:min(100%,278px)}.top{min-height:24px}.main{min-height:43px;padding:9px 6px}.info{min-height:49px;padding:7px 6px}}
 
-.machine{width:min(100%,290px,calc((100vh - 208px) * .583435))}
-@supports(height:100svh){.machine{width:min(100%,290px,calc((100svh - 208px) * .583435))}}
+.machine{--slot-ui-height:190px;width:min(100%,290px,calc((100vh - var(--slot-ui-height)) * .583435))}
+@media(max-width:380px){.machine{--slot-ui-height:180px}}
+@supports(height:100svh){.machine{width:min(100%,290px,calc((100svh - var(--slot-ui-height)) * .583435))}}
 </style>
 </head>
 <body>
