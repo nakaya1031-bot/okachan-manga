@@ -219,8 +219,8 @@ function begin(){
 }
 function stop(i){
  if(!playing||step!==i||reels[i].mode!=='spin')return;
- const r=reels[i],time=performance.now(),now=progress(r,time),target=Math.ceil(now+3.7+i*.3);
- r.mode='brake';r.startPhase=now;r.target=target;r.brakeStart=time;r.brakeDuration=680+i*120;
+ const r=reels[i],time=performance.now(),now=progress(r,time),target=Math.ceil(now+.8);
+ r.mode='brake';r.startPhase=now;r.target=target;r.brakeStart=time;r.brakeDuration=240;
  const final=roundLayout[i];
  for(let k=0;k<3;k++)r.overrides.set(k-target,final[k]);
  setActive(-1);status.textContent=['左','中央','右'][i]+'リールを停止中…';instruction.textContent='図柄が止まるまで少し待ってね';tone(600+i*110);
