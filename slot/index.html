@@ -39,8 +39,9 @@ button{font:inherit;-webkit-tap-highlight-color:transparent;touch-action:manipul
 .main{display:block;width:100%;margin:10px auto 5px;padding:11px 8px 12px;min-height:48px;border:2px solid #ffe29d;border-radius:14px;background:linear-gradient(#ffac67,#e4343b 48%,#941426);box-shadow:inset 0 3px 5px #fff8c7ab,inset 0 -5px 0 #650719,0 4px 0 #6a2d14;color:#fff5c6;text-shadow:0 2px 2px #88201a;font-size:clamp(18px,5.2vw,22px);font-weight:1000;letter-spacing:.035em;cursor:pointer}
 .main:disabled{opacity:.74;filter:saturate(.65);cursor:default}
 .main:active:not(:disabled){transform:translateY(2px);box-shadow:inset 0 3px 5px #fff8c7ab,inset 0 -3px 0 #650719,0 1px 0 #6a2d14}
-.rare{margin:12px 2px 10px;padding:12px 10px 10px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;background:linear-gradient(115deg,#fff8dc 0%,#ffe9a2 40%,#ffc947 100%);border:2px solid #fff2c3;border-radius:14px;box-shadow:0 0 18px #ffbe4266,inset 0 1px 0 #fff;color:#761628;text-align:center;line-height:1.25;font-weight:900;font-size:clamp(13px,3.8vw,16px);text-shadow:none}
-.rare strong{font-size:clamp(42px,12vw,50px);font-weight:1000;line-height:1.04;letter-spacing:-.03em;color:#971635;text-shadow:0 2px 0 #fff6d3;white-space:nowrap;font-variant-numeric:lining-nums tabular-nums}
+.rare{margin:8px 2px;padding:7px 12px;display:flex;align-items:center;justify-content:space-between;gap:10px;background:linear-gradient(115deg,#fff8dc 0%,#ffe9a2 40%,#ffc947 100%);border:2px solid #fff2c3;border-radius:14px;box-shadow:0 0 18px #ffbe4266,inset 0 1px 0 #fff;color:#761628;text-align:center;line-height:1.25;font-weight:900;font-size:clamp(12px,3.7vw,15px);text-shadow:none}
+.rare>span{flex:1;min-width:0}
+.rare strong{flex:none;font-size:clamp(34px,10.5vw,44px);font-weight:1000;line-height:1.04;letter-spacing:-.03em;color:#971635;text-shadow:0 2px 0 #fff6d3;white-space:nowrap;font-variant-numeric:lining-nums tabular-nums}
 .info{margin:8px 2px 0;padding:9px 10px;background:linear-gradient(140deg,#3e1523,#220b17);border:1px solid #ae794f;border-radius:10px;text-align:center;min-height:58px}
 .status{margin:0;font-size:clamp(14px,4vw,17px);font-weight:950;color:#ffeac0;line-height:1.45}
 .instruction{font-size:11px;color:#e1bc9f;margin:3px 0 0;line-height:1.4}
@@ -55,6 +56,9 @@ button{font:inherit;-webkit-tap-highlight-color:transparent;touch-action:manipul
 .links a{flex:1;min-width:0;padding:11px 4px;border:1px solid #916643;border-radius:10px;color:#ffe1b1;text-align:center;text-decoration:none;background:#3d1421;font-size:11px;font-weight:800}
 .foot{text-align:center;color:#b9876c;font-size:10px;margin:15px auto 0}
 @media(max-width:330px){.page{padding-left:6px;padding-right:6px}.machine{width:min(100%,278px)}.top{min-height:24px}.main{min-height:43px;padding:9px 6px}.info{min-height:49px;padding:7px 6px}}
+
+.machine{width:min(100%,290px,calc((100vh - 208px) * .583435))}
+@supports(height:100svh){.machine{width:min(100%,290px,calc((100svh - 208px) * .583435))}}
 </style>
 </head>
 <body>
@@ -77,7 +81,7 @@ button{font:inherit;-webkit-tap-highlight-color:transparent;touch-action:manipul
     <button id="stop2" class="stopHit" type="button" aria-label="右リールの赤いSTOPボタン" disabled></button>
   </div>
   <button id="start" class="main" type="button" disabled>▶ START</button>
-  <div class="rare"><span>✨ 激レア！青7ダブル W BIG</span><strong>1/365</strong></div>
+  <div class="rare"><span>✨ 激レア！<br>青7ダブル W BIG</span><strong>1/365</strong></div>
   <section class="info" aria-live="polite" aria-atomic="true"><p class="status" id="status">スロットを回そう！</p><p class="instruction" id="instruction">START → 赤いボタンを左・中央・右の順に押そう</p></section>
   <div class="fine"><span>✓ 登録不要</span><span>✓ 完全無料</span><span>✓ 何度でも</span></div>
   <details class="details"><summary>遊び方と確率を見る</summary><div class="detailBody">
