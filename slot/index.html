@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#320915">
-<meta name="description" content="おかちゃんスロット。高画質のスロットで無料の運だめし。青7・赤7のシングルとダブル W BIG。青7ダブルは1/365の激レア当たり。">
+<meta name="description" content="おかちゃんスロット。高画質のスロットで無料の運だめし。青7・赤7のシングルBIGとW揃いBIG。青7のW揃いは1/365の激レア当たり。">
 <title>おかちゃんスロット｜おかちゃん あそびひろば</title>
 <style>
 :root{color-scheme:dark;--gold:#ffd582;--paper:#fff5dc;--night:#280911}
@@ -39,8 +39,10 @@ button{font:inherit;-webkit-tap-highlight-color:transparent;touch-action:manipul
 .main{display:block;width:100%;margin:10px auto 5px;padding:11px 8px 12px;min-height:48px;border:2px solid #ffe29d;border-radius:14px;background:linear-gradient(#ffac67,#e4343b 48%,#941426);box-shadow:inset 0 3px 5px #fff8c7ab,inset 0 -5px 0 #650719,0 4px 0 #6a2d14;color:#fff5c6;text-shadow:0 2px 2px #88201a;font-size:clamp(18px,5.2vw,22px);font-weight:1000;letter-spacing:.035em;cursor:pointer}
 .main:disabled{opacity:.74;filter:saturate(.65);cursor:default}
 .main:active:not(:disabled){transform:translateY(2px);box-shadow:inset 0 3px 5px #fff8c7ab,inset 0 -3px 0 #650719,0 1px 0 #6a2d14}
-.rare{margin:8px 2px;padding:7px 12px;display:flex;align-items:center;justify-content:space-between;gap:10px;background:linear-gradient(115deg,#fff8dc 0%,#ffe9a2 40%,#ffc947 100%);border:2px solid #fff2c3;border-radius:14px;box-shadow:0 0 18px #ffbe4266,inset 0 1px 0 #fff;color:#761628;text-align:center;line-height:1.25;font-weight:900;font-size:clamp(12px,3.7vw,15px);text-shadow:none}
+.rare{margin:8px 2px;padding:8px 10px;display:flex;align-items:center;justify-content:space-between;gap:8px;background:linear-gradient(115deg,#fff8dc 0%,#ffe9a2 40%,#ffc947 100%);border:2px solid #fff2c3;border-radius:14px;box-shadow:0 0 18px #ffbe4266,inset 0 1px 0 #fff;color:#761628;text-align:center;line-height:1.15;font-weight:1000;text-shadow:0 1px 0 #fff8df}
 .rare>span{flex:1;min-width:0}
+.rare-kicker{display:block;font-size:clamp(20px,5.8vw,24px);white-space:nowrap}
+.rare-prize{display:block;margin-top:3px;font-size:clamp(18px,5.3vw,22px);font-weight:1000;white-space:nowrap}
 .rare strong{flex:none;font-size:clamp(34px,10.5vw,44px);font-weight:1000;line-height:1.04;letter-spacing:-.03em;color:#971635;text-shadow:0 2px 0 #fff6d3;white-space:nowrap;font-variant-numeric:lining-nums tabular-nums}
 .info{margin:8px 2px 0;padding:9px 10px;background:linear-gradient(140deg,#3e1523,#220b17);border:1px solid #ae794f;border-radius:10px;text-align:center;min-height:58px}
 .status{margin:0;font-size:clamp(14px,4vw,17px);font-weight:950;color:#ffeac0;line-height:1.45}
@@ -82,15 +84,15 @@ button{font:inherit;-webkit-tap-highlight-color:transparent;touch-action:manipul
     <button id="stop2" class="stopHit" type="button" aria-label="右リールの赤いSTOPボタン" disabled></button>
   </div>
   <button id="start" class="main" type="button" disabled>▶ START</button>
-  <div class="rare"><span>✨ 激レア！<br>青7ダブル W BIG</span><strong>1/365</strong></div>
+  <div class="rare"><span><span class="rare-kicker">✨ 激レア！</span><span class="rare-prize">青7 W揃いBIG</span></span><strong>1/365</strong></div>
   <section class="info" aria-live="polite" aria-atomic="true"><p class="status" id="status">スロットを回そう！</p><p class="instruction" id="instruction">START → 赤いボタンを左・中央・右の順に押そう</p></section>
   <div class="fine"><span>✓ 登録不要</span><span>✓ 完全無料</span><span>✓ 何度でも</span></div>
   <details class="details"><summary>遊び方と確率を見る</summary><div class="detailBody">
     <p>STARTを押すと3つのリールが上から下に回ります。スロット台にある3つの赤い丸ボタンを左→中央→右の順に押して止めてください。</p>
-    <p>青7・赤7が斜め1ラインで揃うとシングル BIG、斜めと中央の横2ラインで揃うとダブル W BIGです。色が違う7は揃いになりません。現金・景品・換金はありません。</p>
+    <p>青7・赤7が斜め1ラインで揃うとシングル BIG、斜めと中央の横2ラインで揃うとW揃いBIGです。色が違う7は揃いになりません。現金・景品・換金はありません。</p>
     <p>レアな順・1回ごとの確率</p>
-    <div class="odd"><span>青7ダブル W BIG</span><b>1/365（約0.27%）</b></div>
-    <div class="odd"><span>赤7ダブル W BIG</span><b>9/365（約2.47%）</b></div>
+    <div class="odd"><span>青7 W揃いBIG</span><b>1/365（約0.27%）</b></div>
+    <div class="odd"><span>赤7 W揃いBIG</span><b>9/365（約2.47%）</b></div>
     <div class="odd"><span>青7シングル BIG</span><b>30/365（約8.22%）</b></div>
     <div class="odd"><span>赤7シングル BIG</span><b>70/365（約19.18%）</b></div>
     <div class="odd"><span>はずれ</span><b>255/365（約69.86%）</b></div>
@@ -116,8 +118,8 @@ const strips=[
 ];
 // Keep 110/365 total wins, ordered from rarest to most common.
 const prizes=[
- {id:'blueDouble',weight:1,seven:'blue7',double:true,label:'🏆 青7ダブル W BIG！',odds:'激レア！確率 1/365・おめでとう！'},
- {id:'redDouble',weight:9,seven:'red7',double:true,label:'🎉 赤7ダブル W BIG！',odds:'確率 9/365・おめでとう！'},
+ {id:'blueDouble',weight:1,seven:'blue7',double:true,label:'🏆 青7 W揃いBIG！',odds:'激レア！確率 1/365・おめでとう！'},
+ {id:'redDouble',weight:9,seven:'red7',double:true,label:'🎉 赤7 W揃いBIG！',odds:'確率 9/365・おめでとう！'},
  {id:'blueSingle',weight:30,seven:'blue7',double:false,label:'✨ 青7シングル BIG！',odds:'確率 30/365・おめでとう！'},
  {id:'redSingle',weight:70,seven:'red7',double:false,label:'✨ 赤7シングル BIG！',odds:'確率 70/365・おめでとう！'},
  {id:'miss',weight:255,seven:null,double:false,label:'今回ははずれ。また挑戦！',odds:'もう一度まわして運だめし！'}
